@@ -92,7 +92,7 @@ def remove_stream(port: int):
     for configuration in get_stream_configurations():
         if configuration['listen'] == port:
             delete_stream_definition(configuration)
-            code, stdout, stderr = reload_config()
+            code, stderr = reload_config()
             return json.dumps(dict(
                 result='ok' if code == 0 else 'error',
                 errors=stderr
@@ -116,7 +116,7 @@ def get_free_port():
     claimed_ports = [configuration['listen'] for configuration in get_stream_configurations()]
     for port in PORT_RANGE:
         if port not in claimed_ports:
-            return json.dumps(dict(result='ok', port=str(port)))
+            return json.dumps(dict(result='ok', port=port))
     return json.dumps(dict(result='none available'))
 
 

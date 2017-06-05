@@ -2,6 +2,9 @@ FROM nginx:1.13.1-alpine
 
 MAINTAINER Willem van Asperen
 
+ENV BIND_PORT 5000
+ENV PORT_RANGE 9000-9009
+
 # copied from https://github.com/frol/docker-alpine-python3
 RUN apk add --no-cache python3 && \
     python3 -m ensurepip && \
@@ -20,7 +23,6 @@ ADD app.py /root
 ADD entrypoint.sh /root
 RUN chmod +x /root/entrypoint.sh
 
-
-EXPOSE 80 9000-9999
+EXPOSE ${BIND_PORT} ${PORT_RANGE}
 
 CMD ["/root/entrypoint.sh"]
