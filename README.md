@@ -29,7 +29,7 @@ The service uses the following environment variables:
 | STREAM_CONFIG_PATH | `/etc/nginx/stream.d/` | path to store the stream definition files |
 | NGINX_BIN | `/usr/sbin/nginx` | path to the nginx binary |
 | STREAM_PREFIX | `_conductor_` | prefix to the per-stream configuration files |
-| PORT_RANGE | `9000-9999` | port range[^1] that is available through this service |
+| PORT_RANGE | `9000-9009` | port range[^1] that is available through this service |
 | BIND_ADDRESS | `0.0.0.0` (all) | addresses that the API will bind to |
 | BIND_PORT | `5000` | port that the API will bind to |
 
